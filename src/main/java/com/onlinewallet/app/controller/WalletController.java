@@ -49,7 +49,7 @@ public class WalletController {
 	
 	@GetMapping("/")
 	public String greet() {
-		return "Hello Wallet!";
+		return "Hello Wallet! New Version ... ";
 	}
 
 	@PostMapping("wallet")
@@ -65,7 +65,7 @@ public class WalletController {
 			throw new WalletException("Unauthenticated !");
 		try {
 		Claims claim = Jwts.parser().setSigningKey("Secret123").parseClaimsJws(jwt).getBody();
-		//String email = claim.getIssuer();
+		String email = claim.getIssuer();
 		
 		}
 		catch(ExpiredJwtException e) {
